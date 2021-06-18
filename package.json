@@ -1,0 +1,18 @@
+{
+  "name": "tailwindcss-gutters",
+  "version": "1.0.0",
+  "description": "TailwindCSS plugin that adds polyfill utility classes for gap in flexboxes using margins ",
+  "main": "index.js",
+  "repository": "https://github.com/anny-co/tailwindcss-gutters",
+  "author": "Alexander Bartolomey <alexander.bartolomey@anny.co>",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "eslint": "^7.28.0",
+    "postcss": "^8.3.5",
+    "tailwindcss": "^2.2.0"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}
