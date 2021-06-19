@@ -1,7 +1,7 @@
 const plugin = require("tailwindcss/plugin");
 
 module.exports = plugin(function ({ theme, variants, addUtilities, e }) {
-  Object.entries(theme("gutters")).forEach(([key,value]) => addUtilities({
+  Object.entries(theme("gap")).forEach(([key,value]) => addUtilities({
     [`.gutters-${e(key)}`]: {
       margin: `calc(${value} / 2 * -1)`,
       "& > *": {
@@ -24,6 +24,6 @@ module.exports = plugin(function ({ theme, variants, addUtilities, e }) {
         marginBottom: `calc(${value} / 2)`
       }
     }
-  }, variants("gutters")));
+  }, variants("gap")));
 }
 );
