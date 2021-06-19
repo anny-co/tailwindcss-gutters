@@ -1,74 +1,29 @@
 const plugin = require("tailwindcss/plugin");
-const fromPairs = require("lodash.frompairs");
-const concat = require("lodash.concat");
-const map = require("lodash.map");
 
 module.exports = plugin(function ({ theme, variants, addUtilities, e }) {
-  const guttersTheme = theme("gutters");
-  const guttersVariants = variants("gutters");
-
-  addUtilities({
-    [`.${e("gutters-wrapper")}`]: {
-      display: "flow-root",
+  Object.entries(theme("gutters")).forEach(([key,value]) => addUtilities({
+    [`.gutters-${e(key)}`]: {
+      margin: `calc(${value} / 2 * -1)`,
+      "& > *": {
+        margin: `calc(${value} / 2)`
+      }
     },
-    [`.${e("gutters-wrapper")}::before, .${e("gutters-wrapper")}::after`]: {
-      content: "''",
-      display: "table",
+    [`.gutters-x-${e(key)}`]: {
+      marginRight: `calc(${value} / 2 * -1)`,
+      marginLeft: `calc(${value} / 2 * -1)`,
+      "& > *": {
+        marginRight: `calc(${value} / 2)`,
+        marginLeft: `calc(${value} / 2)`
+      }
     },
-    [`.${e("gutters")}, .${e("gutters-padding")}`]: {
-      "--gutters-x": "0px",
-      "--gutters-y": "0px",
-      "--gutters-x-h": "calc(var(--gutters-x) / 2)",
-      "--gutters-x-h-n": "calc(var(--gutters-x-h) * -1)",
-      "--gutters-y-h": "calc(var(--gutters-y) / 2)",
-      "--gutters-y-h-n": "calc(var(--gutters-y-h) * -1)",
-      margin: "var(--gutters-y-h-n) var(--gutters-x-h-n)",
-    },
-    [`.${e("gutters")} > *`]: {
-      margin: "var(--gutters-y-h) var(--gutters-x-h)",
-    },
-    [`.${e("gutters-padding")} > *`]: {
-      padding: "var(--gutters-y-h) var(--gutters-x-h)",
-    },
-  });
-
-  const combined = fromPairs(
-    concat(
-      ...map(guttersTheme, (val, mod) => {
-        return [
-          [
-            `.${e(`gutters-${mod}`)}`,
-            {
-              "--gutters-x": String(val) === "0" ? "0px" : val,
-              "--gutters-y": String(val) === "0" ? "0px" : val,
-            },
-          ],
-        ];
-      })
-    )
-  );
-
-  const split = fromPairs(
-    concat(
-      ...map(guttersTheme, (v, m) => {
-        return [
-          [
-            `.${e(`gutters-x-${m}`)}`,
-            {
-              "--gutters-x": String(v) === "0" ? "0px" : v,
-            },
-          ],
-          [
-            `.${e(`gutters-y-${m}`)}`,
-            {
-              "--gutters-y": String(v) === "0" ? "0px" : v,
-            },
-          ],
-        ];
-      })
-    )
-  );
-
-  addUtilities({...combined, ...split}, guttersVariants);
+    [`.gutters-y-${e(key)}`]: {
+      marginTop: `calc(${value} / 2 * -1)`,
+      marginBottom: `calc(${value} / 2 * -1)`,
+      "& > *": {
+        marginTop: `calc(${value} / 2)`,
+        marginBottom: `calc(${value} / 2)`
+      }
+    }
+  }, variants("gutters")));
 }
 );

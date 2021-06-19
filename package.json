@@ -8,13 +8,10 @@
   "license": "MIT",
   "private": false,
   "devDependencies": {
+    "autoprefixer": "^10.2.6",
     "eslint": "^7.28.0",
     "postcss": "^8.3.5",
     "tailwindcss": "^2.2.0"
   },
-  "dependencies": {
-    "lodash.concat": "^4.5.0",
-    "lodash.frompairs": "^4.0.1",
-    "lodash.map": "^4.6.0"
-  }
+  "dependencies": {}
 }
