@@ -6,6 +6,10 @@
   "repository": "https://github.com/anny-co/tailwindcss-gutters",
   "author": "Alexander Bartolomey <alexander.bartolomey@anny.co>",
   "license": "MIT",
+  "publishConfig": {
+    "registry": "https://gitlab.com/api/v4/projects/27538764/packages/npm/",
+    "access": "public"
+  },
   "private": false,
   "devDependencies": {
     "autoprefixer": "^10.2.6",
