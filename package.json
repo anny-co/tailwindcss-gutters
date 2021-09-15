@@ -15,8 +15,8 @@
   },
   "license": "MIT",
   "publishConfig": {
-    "registry": "https://registry.npmjs.org/",
-    "access": "public"
+    "registry": "https://gitlab.com/api/v4/projects/27538764/packages/npm/",
+    "access": "restricted"
   },
   "private": false,
   "devDependencies": {
