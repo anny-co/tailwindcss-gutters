@@ -9,6 +9,9 @@
     "email": "alexander.bartolomey@anny.co",
     "url": "https://anny.co/"
   },
+  "scripts": {
+    "postversion": "git push --tags && yarn publish . --new-version $npm_package_version && git push"
+  },
   "bugs": {
     "url": "git@github.com:anny-co/tailwindcss-presets.git",
     "email": "alexander.bartolomey@anny.co"
